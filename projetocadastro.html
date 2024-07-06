@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Login</title>
+<link rel="stylesheet" href="../cssssss/teladelogin.css">
+</head>
+<body>
+<div class="circle-container">
+    <div class="circle"></div>
+</div>
+<div class="login-container">
+    <form class="login-form" action="login.php" method="post">
+        <h2>🎂Login🍰</h2>
+        <input type="text" name="username" placeholder="Nome de usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+        <div class="links">
+            <a href="forgot-password.html">Esqueceu a senha?</a>
+            <span>|</span>
+            <a href="register.html">Registrar-se</a>
+        </div>
+        <div class="error-message">
+            <!-- Mensagem de erro exibida aqui -->
+        </div>
+    </form>
+    <div class="social-login">
+        <p>Ou entre usando:</p>
+        <div class="social-buttons">
+            <a href="#" class="google-btn">Google</a>
+            <a href="#" class="facebook-btn">Facebook</a>
+            <a href="#" class="twitter-btn">Twitter</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
