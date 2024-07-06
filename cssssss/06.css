@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(255, 246, 81);
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+header{
+    border: solid rgb(0, 0, 0);
+    width: 100%;
+    background-color: rgb(0, 255, 13);
+}
+
+.texto{
+    border:solid rebeccapurple;
+    }
+
+.Q1{
+    border: solid green;
+    width: 100%;
+  display: flex;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-self: ;
+    gap: 10px;
+    padding: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
