@@ -1,0 +1,165 @@
+/* Reset de Estilos */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fffefe;
+}
+
+.container {
+    width: 35%;
+    margin: auto;
+  
+}
+
+header {
+    background-color: #262626;
+    color: #eaff00;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+header h1 {
+    margin: 0;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    list-style-type: none;
+    display: inline-block;
+    float: right;
+    transition: all 0.3s ease;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+main {
+    padding: 20px 0;
+}
+
+section {
+    margin-bottom: 30px;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.dog-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 30px; /* Aumentando o espaçamento entre os cães */
+}
+
+.dog {
+    border: 1px solid #b02b2b;
+    padding: 20px;
+    text-align: center;
+    width: 220px; /* Aumentando o tamanho do contêiner do cão */
+    transition: all 0.3s ease;
+}
+
+.dog img {
+    max-width: 100%;
+    margin-bottom: 15px;
+    border-radius: 60%; /* Adicionando borda arredondada para as imagens dos cães */
+    transition: all 0.3s ease;
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: #ac1111;
+    color: #ac0000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}0
+
+.contact-button:hover {
+    background-color: #ffcc00;
+    color: #fff;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+/* Adicionando mais cores */
+
+/* Fundo do header */
+header {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+/* Links do header */
+nav ul li a {
+    color: #333;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+/* Fundo das seções */
+section {
+    background-color: #333;
+}
+
+/* Texto das seções */
+section h2 {
+    color: #ffcc00;
+}
+
+/* Fundo do botão de contato */
+.contact-button {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.contact-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Fundo do footer */
+footer {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+/* Texto do footer */
+footer p {
+    color: #333;
+}

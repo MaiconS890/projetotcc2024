@@ -1,0 +1,52 @@
+h1{
+    text-align: center;
+    color: rgb(79, 255, 214);
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url("https://th.bing.com/th/id/R.e2051171e5824db1fab8933eb35e39e1?rik=XiOqyPaSD%2f4ywQ&pid=ImgRaw&r=0");
+}
+
+body{
+   background-color:rgb(3, 35, 43);
+  
+}
+.box{
+background-color: rgb(0, 60, 255);
+width:200px;
+height: 100px;
+border: 0px;
+border-radius: 10%;
+box-shadow:5px 8px 9px rgba(21, 235, 255, 0.729);
+margin-left:620px;
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 26px;
+}
+
+
+.btns{
+text-align: center;
+
+}
+ 
+button{
+    background-image:url("https://www.bing.com/th/id/OGC.f44d95c6c43de5d5224f1ceebabff92b?pid=1.7&rurl=https%3a%2f%2fmedia.giphy.com%2fmedia%2fWbOcZrhk6MZgc%2fgiphy.gif&ehk=CMArN6OGAz1WY7t6NAHjD3WJ4k6T890W4L1oTKn7ooo%3d") ;
+    font-size: 20px;
+    color: aliceblue;
+    width: 200px;
+height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
