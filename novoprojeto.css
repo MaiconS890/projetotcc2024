@@ -7,6 +7,61 @@ body {
     background-repeat: no-repeat;
     
   }
+  @media (max-width: 768px) {
+    header, footer {
+      font-size: 20px;
+    }
+  
+    nav ul li {
+      font-size: 20px;
+    }
+  
+    button {
+      width: 120px;
+      height: 60px;
+      font-size: 18px;
+    }
+  
+    .recipes li {
+      font-size: 20px;
+    }
+  
+    .cards_item {
+      flex-direction: column;
+    }
+  
+    .card {
+      padding: 10px;
+    }
+  
+    h2.card_title {
+      font-size: 1.1em;
+    }
+  }
+  
+  
+  @media (max-width: 480px) {
+    header, footer {
+      font-size: 18px;
+      padding: 10px 0;
+    }
+  
+    nav ul li {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      width: 100px;
+      height: 50px;
+      font-size: 16px;
+    }
+  
+    .hero {
+      padding: 20px;
+    }
+  }
 
   header, footer {
     background-color: #e8860f;
@@ -57,8 +112,8 @@ text-decoration: none;
 color: #694545;
   }
   img {
-    max-width: 500%;
-    height: 300px;
+    max-width: 100%;
+    height: auto;
     border-radius: 50px 50px;
   }
 h1{
@@ -177,42 +232,6 @@ h2.card_title {
 
 html {
   font-size:20px;
-}
-
-/* CSS */
-.button-89 {
-  --b: 4px;   /* border thickness  */
-  --s: .50em; /* size of the corner */
-  --color: #430096;
-  
-  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
-  color: var(--color);
-  --_p: var(--s);
-  background:
-    conic-gradient(from 90deg at var(--b) var(--b),#004cff 90deg,var(--color) 0)
-    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-  transition: .19s linear, color 0s, background-color 0s;
-  outline: var(--b) solid #1500ff97;
-  outline-offset: .6em;
-  font-size: 16px;
-
-  border: 0;
-
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-89:hover,
-.button-89:focus-visible{
-  --_p: 0px;
-  outline-color: var(--color);
-  outline-offset: .05em;
-}
-
-.button-89:active {
-  background: var(--color);
-  color: #ffe431;
 }
 
 .check {
