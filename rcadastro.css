@@ -63,7 +63,9 @@
     font-weight: 800;
     box-shadow: 3px 3px 0px 0px #E99F4C;
   }
-  
+  .btn, a{
+    text-decoration: none;
+  }
   .btn:hover {
     opacity: .9;
   }
