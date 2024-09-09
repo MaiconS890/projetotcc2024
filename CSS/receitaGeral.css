@@ -111,7 +111,7 @@ p{
 
 .cards_item {
   display: flex;
-  padding: 1rem;
+  padding: 1,0rem;
 }
 
 .card_image {
