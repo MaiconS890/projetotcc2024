@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" href="firebase.css">
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Alunos</h1>
+    <form id="studentForm">
+        <label for="ra">RA:</label>
+        <input type="text" id="ra" required>
+        <br>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required>
+        <br>
+        <button type="submit">Adicionar Aluno</button>
+    </form>
+    <h2>Lista de Alunos</h2>
+    <ul id="studentsList"></ul>
+
+    <script type="module">
+        // Importar as funções necessárias do Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCMTW5mUB30H229JniUKW3wu01zx8JvsFM",
+            authDomain: "alunos-7c8f4.firebaseapp.com",
+            projectId: "alunos-7c8f4",
+            storageBucket: "alunos-7c8f4.appspot.com",
+            messagingSenderId: "628851460191",
+            appId: "1:628851460191:web:de69d05743ae182f1f73ea"
+        };
+
+        // Inicializa o Firebase e Firestore
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Função para adicionar um aluno
+        document.getElementById("studentForm").onsubmit = async (event) => {
+            event.preventDefault(); // Impede o envio do formulário
+            const ra = document.getElementById("ra").value;
+            const name = document.getElementById("name").value;
+
+            try {
+                await addDoc(collection(db, "students"), {
+                    ra: ra,
+                    name: name
+                });
+                alert("Aluno adicionado com sucesso!");
+                document.getElementById("ra").value = '';
+                document.getElementById("name").value = '';
+                readStudents(); // Atualiza a lista de alunos
+            } catch (error) {
+                console.error("Erro ao adicionar aluno: ", error);
+                alert("Erro ao adicionar aluno. Verifique o console para detalhes.");
+            }
+        };
+
+        // Função para ler alunos
+        async function readStudents() {
+            const studentsList = document.getElementById("studentsList");
+            studentsList.innerHTML = ''; // Limpa a lista antes de atualizar
+
+            try {
+                const querySnapshot = await getDocs(collection(db, "students"));
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    studentsList.innerHTML += `<li>${data.ra} - ${data.name}</li>`;
+                });
+            } catch (error) {
+                console.error("Erro ao ler alunos: ", error);
+                alert("Erro ao ler alunos. Verifique o console para detalhes.");
+            }
+        }
+
+        // Carrega a lista de alunos ao carregar a página
+        window.onload = readStudents;
+    </script>
+</body>
+</html>
