@@ -1,0 +1,111 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 100vh;
+            width: 100vw;
+            background-color: blueviolet;
+        }
+    </style>
+    
+    <main>
+        <input type="text" id="email" placeholder="digite seu email">
+        <input type="password" id="senha" placeholder="digite sua senha">
+        <button id="Benviar"> FAZER LOGIN </button>
+        <button id="btn-redefinir">REDEFINIR SENHA</button>
+        <button id="btn-cadastro">CADASTRAR</button>
+
+    </main>
+
+  
+    
+
+    <!-- CARREGAR OS SCRIPTS DO FIREBASE ANTES DE USAR -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBNuFncXaJvtLGtU__FUVwWWbZDvmbZ-AU",
+            authDomain: "aula-8edb5.firebaseapp.com",
+            databaseURL: "https://aula-8edb5-default-rtdb.firebaseio.com",
+            projectId: "aula-8edb5",
+            storageBucket: "aula-8edb5.appspot.com",
+            messagingSenderId: "304108524777",
+            appId: "1:304108524777:web:7fa7c22b662ca092d6cc78"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        //PROCURAR EMAIL CADASTRADO
+
+        document.querySelector('#Benviar').addEventListener('click', function() {
+            const email = document.getElementById('email').value; //variável que pega o valor do email
+            const senha = document.getElementById('senha').value; //variável que pega a senha
+
+            // AUTENTICAÇÃO DO USUÁRIO
+            firebase.auth().signInWithEmailAndPassword(email, senha) //função do FIREBASE que pega o email e a senha
+            .then(response => {
+                alert("Usuário conectado com sucesso!"); //opcional
+                // window.location.href = "index2.html"; // Redireciona para index2.html
+            })
+            .catch(error => {
+                alert("Usuário não encontrado | email ou senha incorretos"); // Mostra erro em um alert!
+                console.log("Erro!", error);
+            });
+        });
+
+
+        //REDEFINIR SENHA
+        document.getElementById('btn-redefinir').addEventListener('click', function() {
+        const email = document.getElementById('email').value;
+
+        // Enviar o email para redefinição de senha
+        firebase.auth().sendPasswordResetEmail(email)
+        .then(() => {
+            alert("Email de redefinição de senha enviado! Verifique sua caixa de entrada.");
+        })
+        .catch(error => {
+            alert("Erro ao enviar email de redefinição de senha: " + error.message);
+            console.log("Erro:", error);
+        });
+    });
+
+ //CADASTRAR
+
+    document.getElementById('btn-cadastro').addEventListener('click', function() {
+        const email = prompt("Digite seu email:");
+        const senha = prompt("Digite sua senha:");
+
+    //AQUI PODE COLOCAR UMA VALIDAÇÃO DE SENHA QUE VOCÊ PRECISAR, DEPOIS COLOCAR O CÓDIGO ABAIXO DENTRO DESSA VALIDAÇÃO. 
+
+
+        // Se a senha for válida, tente cadastrar o usuário
+        firebase.auth().createUserWithEmailAndPassword(email, senha)
+        .then((userCredential) => {
+            // O cadastro foi bem-sucedido
+            alert("Cadastro realizado com sucesso! Bem-vindo, " + email);
+        })
+        .catch((error) => {
+            // Se houve um erro, mostre a mensagem
+            alert("Erro ao cadastrar: " + error.message);
+        });
+    });
+
+
+
+    </script>
+</body>
+</html>

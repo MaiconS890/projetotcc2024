@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <style>
+        body{
+            background-color: blueviolet;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container2{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        button{
+            margin: 9px;
+            width: 126px;
+        }
+        .email, .password{
+            background-color: aliceblue;
+            text-align: center;
+            width: 176px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="email">E-mail
+            <input type="text" id="email" placeholder="Digite aqui seu email">
+        </div>
+        <div class="password">Senha
+            <input type="password" id="password" placeholder="Digite aqui sua senha">
+        </div>
+    </div>
+    <div class="container2">
+        <button id="registerConfirm">Fazer Login</button>
+        <button id="passwordVerify">Esqueceu a senha</button>
+        <button id="register">Cadastrar-se</button>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCxBPmG0L9ELeQP-un1cPyobu6b48RFjew",
+          authDomain: "aula-fire-23ca7.firebaseapp.com",
+          databaseURL: "https://aula-fire-23ca7-default-rtdb.firebaseio.com",
+          projectId: "aula-fire-23ca7",
+          storageBucket: "aula-fire-23ca7.appspot.com",
+          messagingSenderId: "402597398877",
+          appId: "1:402597398877:web:eb91a52f6a1e9ce82440b4"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        document.querySelector('registerConfirm').addEventListener('click', function(){
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('password').vallue;
+        })
+      </script>
+</body>
+</html>
