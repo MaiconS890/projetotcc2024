@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    
     <style>
         body{
             background-color: blueviolet;
@@ -47,7 +46,13 @@
         <button id="passwordVerify">Esqueceu a senha</button>
         <button id="register">Cadastrar-se</button>
     </div>
-    <script type="module">
+
+
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    
+    
+    <script>
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
         // TODO: Add SDKs for Firebase products that you want to use
@@ -61,16 +66,59 @@
           projectId: "aula-fire-23ca7",
           storageBucket: "aula-fire-23ca7.appspot.com",
           messagingSenderId: "402597398877",
-          appId: "1:402597398877:web:eb91a52f6a1e9ce82440b4"
+           appId: "1:402597398877:web:eb91a52f6a1e9ce82440b4"
         };
       
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-
+                //verificação de usuário
         document.querySelector('registerConfirm').addEventListener('click', function(){
             const email = document.getElementById('email').value;
-            const senha = document.getElementById('password').vallue;
-        })
+            const password = document.getElementById('password').vallue;
+        
+
+            firebase.auth().singInWithEmailAndPassword(email, password)
+            .then(response =>{
+                alert("Usuário conectado com sucesso!")
+                //<!-- window.location.href="nomeDaPágina.html" -->
+            })
+            .catch(error=>{
+                alert("Usuário não encontrado! | email ou senha não conferem!")
+                console.log("Erro!", error)
+            });
+        });
+                // Redefinição de senha
+        document.getElementById('passwordVerify').addEventListener('click', function(){
+            const email = document.getElementById('email').value;
+
+            firebase.auth().sendPasswordResetEmail(email)
+            .then(() =>{
+                alert("Email de redefinição de senha enviado! Verifique sua caixa de entrada")
+            })
+            .catch(error =>{
+                alert("Erro ao enviar email de redefinição de senha:" + error.message);
+                console.log("Erro:", error);
+            });
+        });
+                //Cadastrar
+        
+        document.getElementById('register').addEventListener('click', function(){
+            const email = prompt("Digite seu email: ");
+            const senha = prompt("Digite sua senha: ");
+            const senhaValid = prompt("Digite a senha novamente");
+
+            //if(senha == senhaValid){
+                firebase.auth().creatUserWithEmailAndPassword(email, senha, senhaValid)
+                .then((userCredential)=>{
+                    alert("Cadastro realizado com sucesso! Bem vindo, " + email);
+                })
+                .catch((error)=>{
+                    alert("Erro ao cadastrar" + error.message);
+                });
+            //}else{
+              //  alert("Senhas não conferem!")
+           // }
+        });
       </script>
 </body>
 </html>
